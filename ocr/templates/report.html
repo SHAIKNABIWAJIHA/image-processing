@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OCR Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .word-counts {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .word-counts ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .word-counts li {
+            margin-bottom: 5px;
+        }
+        .plot-container {
+            text-align: center;
+        }
+        .plot-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Word Count Report</h1>
+        <div class="word-counts">
+            <h2>Word Count Statistics</h2>
+            <ul>
+                {% for word, count in word_counts.items() %}
+                    <li>{{ word }}: {{ count }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="plot-container">
+            <h2>Word Count Visualization</h2>
+            <img src="{{ plot_path }}" alt="Word Count Plot">
+        </div>
+    </div>
+</body>
+</html>
